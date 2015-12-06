@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Balakin.AssemblyDiff {
     public interface IDiff {
-        DiffType Type { get; }
+        Different Different { get; }
         IList<IDiff> Children { get; }
     }
 }

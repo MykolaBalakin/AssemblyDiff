@@ -57,10 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diff.cs" />
+    <Compile Include="AssemblyDiff.cs" />
+    <Compile Include="CustomAttributeDiff.cs" />
+    <Compile Include="CustomAttributesDiff.cs" />
     <Compile Include="DiffBase.cs" />
-    <Compile Include="DiffType.cs" />
+    <Compile Include="Different.cs" />
     <Compile Include="IDiff.cs" />
+    <Compile Include="ModuleDiff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

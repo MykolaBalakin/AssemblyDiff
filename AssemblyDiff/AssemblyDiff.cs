@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mono.Cecil;
 
 namespace Balakin.AssemblyDiff {
-    public static class Diff {
-        public static IDiff Calculate<T>(T obj1, T obj2) {
+    public class AssemblyDiff : DiffBase {
+        public static AssemblyDiff Calculate(AssemblyDefinition assembly1, AssemblyDefinition assembly2) {
             throw new NotImplementedException();
         }
     }
