@@ -58,13 +58,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyDiff.cs" />
+    <Compile Include="CustomAttributeArgumentDiff.cs" />
+    <Compile Include="CustomAttributeArgumentsDiff.cs" />
     <Compile Include="CustomAttributeDiff.cs" />
+    <Compile Include="CustomAttributeFieldsDiff.cs" />
+    <Compile Include="CustomAttributeNamedArgumentDiff.cs" />
+    <Compile Include="CustomAttributeNamedArgumentsDiff.cs" />
+    <Compile Include="CustomAttributeNamedArgumentType.cs" />
+    <Compile Include="CustomAttributePropertiesDiff.cs" />
     <Compile Include="CustomAttributesDiff.cs" />
     <Compile Include="DiffBase.cs" />
     <Compile Include="Different.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="IDiff.cs" />
     <Compile Include="ModuleDiff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeDiff.cs" />
+    <Compile Include="ValueDiff.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
