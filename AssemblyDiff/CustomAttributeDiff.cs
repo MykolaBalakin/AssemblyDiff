@@ -10,6 +10,16 @@ namespace Balakin.AssemblyDiff {
                 return new CustomAttributeDiff(Different.Same);
             }
 
+            String typeName = null;
+            if (attribute1 != null && attribute2 != null) {
+                var name1 = attribute1.AttributeType.FullName;
+                var name2 = attribute2.AttributeType.FullName;
+                if (!String.Equals(name1, name2, StringComparison.Ordinal)) {
+                    throw new ArgumentOutOfRangeException(nameof(attribute2), "Type of both attributes should be equal");
+                }
+                typeName = attribute1.AttributeType.Name;
+            }
+
             var children = new List<IDiff>();
 
             var constructorArguments1 = attribute1?.ConstructorArguments;
@@ -31,7 +41,7 @@ namespace Balakin.AssemblyDiff {
             }
 
             var result = new CustomAttributeDiff(children);
-            result.AttributeType = attribute1?.AttributeType?.Name ?? attribute2?.AttributeType?.Name;
+            result.CustomAttributeType = typeName;
             return result;
         }
 
@@ -44,6 +54,6 @@ namespace Balakin.AssemblyDiff {
             : base(children) {
         }
 
-        public String AttributeType { get; private set; }
+        public String CustomAttributeType { get; private set; }
     }
 }

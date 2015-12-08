@@ -16,7 +16,7 @@ namespace Balakin.AssemblyDiff {
                 var name1 = argument1.Value.Name;
                 var name2 = argument2.Value.Name;
                 if (!String.Equals(name1, name2, StringComparison.Ordinal)) {
-                    throw new ArgumentOutOfRangeException(nameof(argument1), "Name of both attributes should be equal");
+                    throw new ArgumentOutOfRangeException(nameof(argument2), "Name of both attributes should be equal");
                 }
                 name = name1;
             } else {
