@@ -6,14 +6,20 @@ using Mono.Cecil;
 namespace Balakin.AssemblyDiff {
     public class CustomAttributesDiff : DiffBase {
         public static CustomAttributesDiff Calculate(ICollection<CustomAttribute> attributes1, ICollection<CustomAttribute> attributes2) {
+            if (attributes1.NullOrEmpty() && attributes2.NullOrEmpty()) {
+                return new CustomAttributesDiff(Different.Same);
+            }
+
             var children = new List<IDiff>();
 
-            var allAttributeTypes = attributes1.Select(a => a.AttributeType.Name).Union(attributes2.Select(a => a.AttributeType.Name)).Distinct().OrderBy(t => t).ToList();
+            var attributeTypes1 = attributes1?.Select(a => a.AttributeType.Name);
+            var attributeTypes2 = attributes2?.Select(a => a.AttributeType.Name);
+            var allAttributeTypes = attributeTypes1.UnionIfNotNull(attributeTypes2).Distinct().OrderBy(t => t).ToList();
             var allAttributes = allAttributeTypes.ToDictionary(
                 t => t,
                 t => Tuple.Create(
-                    attributes1.Where(a => a.AttributeType.Name == t).ToList(),
-                    attributes2.Where(a => a.AttributeType.Name == t).ToList()
+                    attributes1?.Where(a => a.AttributeType.Name == t).ToList() ?? new List<CustomAttribute>(),
+                    attributes2?.Where(a => a.AttributeType.Name == t).ToList() ?? new List<CustomAttribute>()
                     )
                 );
             foreach (var type in allAttributeTypes) {
@@ -64,12 +70,14 @@ namespace Balakin.AssemblyDiff {
             return new CustomAttributesDiff(children);
         }
 
-        public CustomAttributesDiff(Different different)
+        protected CustomAttributesDiff(Different different)
             : base(different) {
         }
 
-        public CustomAttributesDiff(IEnumerable<IDiff> children)
+        protected CustomAttributesDiff(IEnumerable<IDiff> children)
             : base(children) {
         }
+
+        public override DiffType DiffType => DiffType.CustomAttribute | DiffType.Group;
     }
 }

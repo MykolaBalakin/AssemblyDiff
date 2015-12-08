@@ -38,5 +38,7 @@ namespace Balakin.AssemblyDiff {
         protected CustomAttributeArgumentsDiff(IEnumerable<IDiff> children)
              : base(children) {
         }
+
+        public override DiffType DiffType => DiffType.Argument | DiffType.Group;
     }
 }

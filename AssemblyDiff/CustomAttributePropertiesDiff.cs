@@ -15,5 +15,7 @@ namespace Balakin.AssemblyDiff {
 
         protected CustomAttributePropertiesDiff(IEnumerable<IDiff> children) : base(children) {
         }
+
+        public override DiffType DiffType => DiffType.Property | DiffType.Group;
     }
 }

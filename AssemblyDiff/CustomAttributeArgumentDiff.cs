@@ -10,7 +10,7 @@ namespace Balakin.AssemblyDiff {
             }
 
             var children = new IDiff[] {
-                TypeDiff.Calculate(argument1?.Type, argument2?.Type),
+                TypeReferenceDiff.Calculate(argument1?.Type, argument2?.Type),
                 ValueDiff.Calculate(argument1?.Value, argument1 != null, argument2?.Value, argument2 != null)
             };
             return new CustomAttributeArgumentDiff(children);
@@ -23,5 +23,7 @@ namespace Balakin.AssemblyDiff {
         protected CustomAttributeArgumentDiff(IEnumerable<IDiff> children)
             : base(children) {
         }
+
+        public override DiffType DiffType => DiffType.Argument;
     }
 }

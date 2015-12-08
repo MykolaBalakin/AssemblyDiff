@@ -24,5 +24,6 @@ namespace Balakin.AssemblyDiff {
         public Different Different { get; }
 
         public IList<IDiff> Children { get; }
+        public abstract DiffType DiffType { get; }
     }
 }

@@ -40,5 +40,6 @@ namespace Balakin.AssemblyDiff {
         }
 
         public String Name { get; private set; }
+        public override DiffType DiffType => DiffType.Argument;
     }
 }

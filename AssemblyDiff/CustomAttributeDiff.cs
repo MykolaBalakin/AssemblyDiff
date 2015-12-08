@@ -11,7 +11,11 @@ namespace Balakin.AssemblyDiff {
             }
 
             String typeName = null;
-            if (attribute1 != null && attribute2 != null) {
+            if (attribute1 == null) {
+                typeName = attribute2.AttributeType.Name;
+            } else if (attribute2 == null) {
+                typeName = attribute1.AttributeType.Name;
+            } else {
                 var name1 = attribute1.AttributeType.FullName;
                 var name2 = attribute2.AttributeType.FullName;
                 if (!String.Equals(name1, name2, StringComparison.Ordinal)) {
@@ -55,5 +59,6 @@ namespace Balakin.AssemblyDiff {
         }
 
         public String CustomAttributeType { get; private set; }
+        public override DiffType DiffType => DiffType.CustomAttribute;
     }
 }

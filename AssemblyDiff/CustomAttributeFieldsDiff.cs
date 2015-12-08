@@ -10,10 +10,14 @@ namespace Balakin.AssemblyDiff {
             return result;
         }
 
-        protected CustomAttributeFieldsDiff(Different different) : base(different) {
+        protected CustomAttributeFieldsDiff(Different different) 
+            : base(different) {
         }
 
-        protected CustomAttributeFieldsDiff(IEnumerable<IDiff> children) : base(children) {
+        protected CustomAttributeFieldsDiff(IEnumerable<IDiff> children) 
+            : base(children) {
         }
+
+        public override DiffType DiffType => DiffType.Field | DiffType.Group;
     }
 }

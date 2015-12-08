@@ -14,6 +14,7 @@ namespace Balakin.AssemblyDiff {
         public static AssemblyDiff Calculate(AssemblyDefinition assembly1, AssemblyDefinition assembly2) {
             var children = new List<IDiff>();
             children.Add(CustomAttributesDiff.Calculate(assembly1.CustomAttributes, assembly2.CustomAttributes));
+            children.Add(ModulesDiff.Calculate(assembly1.Modules, assembly2.Modules));
             return new AssemblyDiff(children);
         }
 
@@ -25,5 +26,7 @@ namespace Balakin.AssemblyDiff {
         protected AssemblyDiff(IEnumerable<IDiff> children)
             : base(children) {
         }
+
+        public override DiffType DiffType => DiffType.Assembly;
     }
 }

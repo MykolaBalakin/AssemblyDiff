@@ -69,11 +69,19 @@
     <Compile Include="CustomAttributesDiff.cs" />
     <Compile Include="DiffBase.cs" />
     <Compile Include="Different.cs" />
+    <Compile Include="DiffType.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IDiff.cs" />
+    <Compile Include="MethodAttributesDiff.cs" />
+    <Compile Include="MethodDiff.cs" />
+    <Compile Include="MethodsDiff.cs" />
     <Compile Include="ModuleDiff.cs" />
+    <Compile Include="ModulesDiff.cs" />
+    <Compile Include="NamespaceDiff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeDiff.cs" />
+    <Compile Include="TypeReferenceDiff.cs" />
+    <Compile Include="TypesDiff.cs" />
     <Compile Include="ValueDiff.cs" />
   </ItemGroup>
   <ItemGroup>

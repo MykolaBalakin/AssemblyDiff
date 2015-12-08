@@ -8,5 +8,6 @@ namespace Balakin.AssemblyDiff {
     public interface IDiff {
         Different Different { get; }
         IList<IDiff> Children { get; }
+        DiffType DiffType { get; }
     }
 }
